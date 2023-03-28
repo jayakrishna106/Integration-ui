@@ -1,0 +1,41 @@
+<!-- 
+<app-mapper></app-mapper>
+<div id="mapper">
+    <div *ngIf="loading; else dataMapper">
+    loading... {{loading}}
+    {{dataMapper}}
+  </div>
+<div>
+    <ng-template #dataMapper>
+    <app-mapper
+      [documentId]="documentId"
+      [inputDocuments]="inputDocuments"
+      [outputDocument]="outputDocument"
+      [initialMappings]="initialMappings"
+      
+      (outputMappings)="onMappings($event)"
+    ></app-mapper>
+</ng-template>
+</div> -->
+
+
+
+<div id="map">
+<div *ngIf="loading">
+    loading... {{loading}}
+  </div> 
+<!-- <ng-template #dataMapper> -->
+  <!-- <data-mapper #dataMapperHostComponent></data-mapper> -->
+    <app-apicurio-host
+      [documentId]="documentId"
+      [inputDocuments]="inputDocuments"
+      [outputDocument]="outputDocument"
+      [initialMappings]="initialMappings"
+      [baseJavaInspectionServiceUrl]="baseJavaInspectionServiceUrl"
+      [baseXMLInspectionServiceUrl]="baseXMLInspectionServiceUrl"
+      [baseJSONInspectionServiceUrl]="baseJSONInspectionServiceUrl"
+      [baseMappingServiceUrl]="baseMappingServiceUrl"
+      (outputMappings)="onMappings($event)"
+    ></app-apicurio-host>
+<!-- </ng-template> -->
+</div>
