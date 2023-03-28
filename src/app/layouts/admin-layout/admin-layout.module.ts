@@ -16,6 +16,10 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import {DataMapperModule} from '@atlasmap/atlasmap-data-mapper';
+import { DataMapperHostComponent } from "app/mapper/data-mapper-host.component";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { fwcAPIInterceptor } from 'app/fwcAPIInterceptor';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -29,7 +33,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    DataMapperModule,
+    
   ],
   declarations: [
     DashboardComponent,
@@ -39,6 +45,10 @@ import { MatSelectModule } from '@angular/material/select';
     MapperComponent,
     NotificationsComponent,
     UpgradeComponent,
+    DataMapperHostComponent,
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: fwcAPIInterceptor, multi: true},
   ]
 })
 

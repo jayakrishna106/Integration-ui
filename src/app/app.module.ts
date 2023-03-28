@@ -1,15 +1,15 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { DataMapperModule } from '@atlasmap/atlasmap-data-mapper';
-import { DataMapperHostComponent } from './mapper/data-mapper-host.component';
+import { fwcAPIInterceptor } from './fwcAPIInterceptor';
+ 
 
 
 @NgModule({
@@ -22,17 +22,16 @@ import { DataMapperHostComponent } from './mapper/data-mapper-host.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    DataMapperModule,
-    
+    BrowserModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    DataMapperHostComponent,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: fwcAPIInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent],
-  exports:[ DataMapperHostComponent, DataMapperModule]
 })
 
 export class AppModule { }

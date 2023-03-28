@@ -56,7 +56,7 @@ import {
   export interface IInitMessagePayload {
     documentId: string;
     inputDocuments: IDocumentProps[];
-    outputDocument: IDocumentProps;
+    outputDocument: IDocumentProps[];
     initialMappings?: string;
     baseJavaInspectionServiceUrl: string;
     baseXMLInspectionServiceUrl: string;
@@ -96,7 +96,7 @@ import {
     loading = true;
     documentId: string;
     inputDocuments: IDocumentProps[];
-    outputDocument: IDocumentProps;
+    outputDocument: IDocumentProps[];
     initialMappings?: string;
     baseJavaInspectionServiceUrl: string;
     baseXMLInspectionServiceUrl: string;
@@ -121,12 +121,11 @@ import {
   
     onMessagePort(event: MessageEvent) {
       this.messagePort = event.ports[0];
-        if(this.messagePort!=null){
-            this.messagePort.onmessage = this.onMessages;
-            this.messagePort.postMessage({
-                message: 'ready',
-            });
-            }
+    
+        this.messagePort.onmessage = this.onMessages;
+        this.messagePort.postMessage({
+            message: 'ready',
+        });
     }
   
     onMessages(event: MessageEvent) {
@@ -147,10 +146,9 @@ import {
       this.inputDocuments = payload.inputDocuments;
       this.outputDocument = payload.outputDocument;
       this.initialMappings = payload.initialMappings;
-      this.baseJavaInspectionServiceUrl = payload.baseJavaInspectionServiceUrl;
-      this.baseXMLInspectionServiceUrl = payload.baseXMLInspectionServiceUrl;
-      this.baseJSONInspectionServiceUrl = payload.baseJSONInspectionServiceUrl;
-      this.baseMappingServiceUrl = payload.baseMappingServiceUrl;
+      
+      console.log("INpiut" + this.inputDocuments);
+      console.log("ooutput" + this.outputDocument);
     }
   
     onMappings(mappings: string) {

@@ -21,21 +21,13 @@
 
 
 <div id="map">
-<div *ngIf="loading">
-    loading... {{loading}}
-  </div> 
-<!-- <ng-template #dataMapper> -->
-  <!-- <data-mapper #dataMapperHostComponent></data-mapper> -->
-    <app-apicurio-host
+
+    <app-data-mapper
       [documentId]="documentId"
       [inputDocuments]="inputDocuments"
       [outputDocument]="outputDocument"
       [initialMappings]="initialMappings"
-      [baseJavaInspectionServiceUrl]="baseJavaInspectionServiceUrl"
-      [baseXMLInspectionServiceUrl]="baseXMLInspectionServiceUrl"
-      [baseJSONInspectionServiceUrl]="baseJSONInspectionServiceUrl"
-      [baseMappingServiceUrl]="baseMappingServiceUrl"
       (outputMappings)="onMappings($event)"
-    ></app-apicurio-host>
-<!-- </ng-template> -->
+    ></app-data-mapper>
+
 </div>
