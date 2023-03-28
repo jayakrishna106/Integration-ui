@@ -137,7 +137,7 @@ import {
     //     c.addDocument(inputDoc);
     //   });
   
-      var outputDoc: DocumentInitializationModel = new DocumentInitializationModel();
+      //var outputDoc: DocumentInitializationModel = new DocumentInitializationModel();
       //outputDoc.type = this.outputDocument.documentType;
       //outputDoc.inspectionType = this.outputDocument.inspectionType;
       //outputDoc.inspectionSource = this.outputDocument.inspectionSource;

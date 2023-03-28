@@ -1,4 +1,7 @@
 @import '~patternfly/dist/css/patternfly.css';
+@import '~patternfly/dist/css/patternfly-additions.css';
+@import '~patternfly/dist/css/rcue.css';
+@import '~patternfly/dist/css/rcue-additions.css';
 
 .DataMapperUI {
   width: 100% !important;
